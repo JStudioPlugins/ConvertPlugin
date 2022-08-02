@@ -56,11 +56,12 @@ namespace ConvertPlugin
                         }
                     }
                 }
-                UnturnedChat.Say(player, $"You have {amount} {asset.valueFormat.Replace("{0:N0} ", "")}");
+                //UnturnedChat.Say(player, $"You have {amount} {asset.valueFormat.Replace("{0:N0} ", "")}");
+                UnturnedChat.Say(player, ConvertPlugin.Instance.Translate("CurrencyAmount", amount, asset.valueFormat.Replace("{0:N0} ", "")));
             }
             else
             {
-                UnturnedChat.Say(player, "Someone didn't set the GUID for conversion to an ItemCurrencyAsset", Color.red);
+                UnturnedChat.Say(player, ConvertPlugin.Instance.Translate("IncorrectGUID"), Color.red);
             }
         }
     }

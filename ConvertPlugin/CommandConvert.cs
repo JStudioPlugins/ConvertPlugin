@@ -44,11 +44,12 @@ namespace ConvertPlugin
             switch (asset)
             {
                 case ItemAsset _:
-                    UnturnedChat.Say(player, "Someone didn't set the GUID for conversion to an ItemCurrencyAsset", Color.red);
+                    UnturnedChat.Say(player, ConvertPlugin.Instance.Translate("IncorrectGUID"), Color.red);
                     break;
                 case ItemCurrencyAsset itemCurrencyAsset:
                     itemCurrencyAsset.grantValue(player.Player, amount);
-                    UnturnedChat.Say(player, $"Granted you {amount} {itemCurrencyAsset.valueFormat.Replace("{0:N0} ", "")}");
+                    //UnturnedChat.Say(player, $"Granted you {amount} {itemCurrencyAsset.valueFormat.Replace("{0:N0} ", "")}");
+                    UnturnedChat.Say(player, ConvertPlugin.Instance.Translate("CurrencyGrant", amount, itemCurrencyAsset.valueFormat.Replace("{0:N0} ", "")));
                     player.Experience = 0;
                     break;
             }

@@ -1,4 +1,5 @@
-﻿using Rocket.Core.Plugins;
+﻿using Rocket.API.Collections;
+using Rocket.Core.Plugins;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,5 +20,12 @@ namespace ConvertPlugin
         {
             
         }
+
+        public override TranslationList DefaultTranslations => new TranslationList()
+        {
+            { "IncorrectGUID", "Someone didn't set the GUID for conversion to an ItemCurrencyAsset!" },
+            { "CurrencyAmount", "You have {0} {1}" },
+            { "CurrencyGrant", "Granted you {0} {1}" }
+        };
     }
 }
